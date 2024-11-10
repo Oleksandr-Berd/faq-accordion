@@ -1,19 +1,17 @@
+import * as SC from "./CardQuestListStyled"
+
 import data from "../../db/db.json"
 
-import buttonIcon from "../../assets/icons/ph_plus-circle-fill.png"
+import CardQuestUnit from "./CardQuestUnit"
 
 const CardQuestList = () => {
+   
     return (
-      <ul>
-        {data.map(({ title, id }) => (
-          <li key={id}>
-            <p>{title}</p>
-            <button>
-              <img src={buttonIcon} alt="button" />
-            </button>
-          </li>
+      <SC.ListStyled>
+        {data.map(({ question, text, id }) => (
+          <CardQuestUnit  id={id} question={question} text={text} />
         ))}
-      </ul>
+      </SC.ListStyled>
     );
 }
  
